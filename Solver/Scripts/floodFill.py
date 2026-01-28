@@ -502,8 +502,7 @@ def main():
         if moveAuto:
             CheckWalls()
             nextMove = labirinto.GetNextMove()
-            moveAuto=False
-            '''# Mover para a esquerda relativa
+            # Mover para a esquerda relativa
             if nextMove == 1:
                 Move(1)
             # Mover para a esquerda relativa
@@ -516,21 +515,17 @@ def main():
             else:
                 Move(2)
 
-            Move(0)'''
+            Move(0)
 
         # Interpreta teclas pressionadas
         if 'w' in keys_pressed:
             Move(0)
-            moveAuto = True
         if 's' in keys_pressed:
             Move(2)
-            moveAuto = True
         if 'a' in keys_pressed:
             Move(1)
-            moveAuto = True
         if 'd' in keys_pressed:
             Move(-1)
-            moveAuto = True
         if 'x' in keys_pressed:
             moveAuto = True
 
