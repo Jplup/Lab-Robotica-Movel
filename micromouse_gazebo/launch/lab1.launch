@@ -1,0 +1,19 @@
+<launch>
+  <!-- Caminho do mundo -->
+  <arg name="world_file" default="$(find micromouse_gazebo)/worlds/lab1.world"/>
+
+  <!-- Lança o Gazebo com o mundo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="paused" value="false"/>
+  </include>
+
+  <!-- Publica o robot_description gerado a partir do Xacro -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find micromouse_description)/urdf/mouse.xacro'"/>
+
+  <!-- Spawna o robô no Gazebo -->
+  <node name="spawn_mouse" pkg="gazebo_ros" type="spawn_model"
+        args="-param robot_description -urdf -model mouse -x 0 -y 0 -z 0"
+        output="screen"/>
+</launch>
+

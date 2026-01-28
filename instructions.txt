@@ -1,0 +1,19 @@
+roscore
+
+# intruções para gerar o mapa: cada célula contém as informações das paredes de cima e da esquerda dessa forma:0 -> nenhuma parede / 1 -> só a parede da esquerda / 2 -> só a parede de cima / 3 -> as parede de cima e da esquerda. Exemplo:
+# 3233
+
+
+# caso tenha modificado o .txt de geração de mapa, é preciso rodar o script em python que cria o arquivo no formato usado pelo gazebo(.world), para fazer isso use esses comandos:
+cd ~/catkin_ws/src/micromouse_gazebo
+python3 scripts/generate_world.py maps/lab1.txt worlds/lab1.world
+# Se quiser usar outro .txt ou gerar o .world com outro nome ,é só mudar esses nomes no segundo comando. Se for mudar o nome do .world é preciso mudar o nome nas próximas linhas de comando mas aí tem que mudar
+
+
+# Abrir o gazebo com o labirinto:
+roslaunch micromouse_gazebo lab1.launch
+
+
+# Rodar o solver:
+python catkin_ws/src/micro/Solver/Scripts/simpleMove.py 
+
